@@ -1,8 +1,10 @@
 .header {
-  height: 95vh;
-  background-color: $alice-blue;
-  clip-path: polygon(0 0, 100% -4%, 0 80%);
-
+  svg {
+    position: absolute;
+    top: 0;
+    z-index: -9;
+    right: 5%;
+  }
   h1 {
     color: $navy-blue;
     text-align: center;
@@ -14,7 +16,7 @@
     font-size: 1.2rem;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     padding-top: 2rem;
     -webkit-font-smoothing: initial;
   }
@@ -30,11 +32,10 @@
     position: relative;
     left: 50%;
     transform: translate(-50%);
-    margin-top: 5rem;
+    margin: 6rem 0;
     box-shadow: 3px 3px 11px 0px rgba(0,0,0, 0.1);
     caret-color: $teaGreen;
     color: $dark-grey;
-    font-family: $font-circular-bold;
 
     &::placeholder {
       color: $light-grey;
