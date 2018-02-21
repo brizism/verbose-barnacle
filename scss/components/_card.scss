@@ -1,0 +1,99 @@
+@mixin font-card-headline {
+  font-family: "Circular Std Bold";
+  font-size: 1.6rem;
+  letter-spacing: 0.6px;
+  margin-bottom: 1rem;
+}
+
+@mixin span-tags {
+  background: $grey-blue;
+  padding: .2rem .5rem;
+  font-size: 1.4rem;
+  margin: 0 1rem 1rem 0;
+  display: inline-block;
+  color: $dark-grey; 
+}
+
+.word-card {
+  width: 50%;
+  background: white;
+  margin: 0 auto;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 3px 3px 11px 0px rgba(0,0,0, 0.1);
+
+  // word-wrapper
+  .word-wrapper {
+    display: flex;
+    justify-content: center;
+
+    .word-first-letter {
+      font-size: 24rem;
+      font-family: $font-circular-bold;
+      color: $light-grey;
+    }
+
+    .word {
+      align-self: center;
+      position: relative;
+      right: 8.5rem;
+      top: 3.3rem;
+    }
+
+    .word-part-of-speech {
+      align-self: center;
+      font-size: 2rem;
+      position: relative;
+      right: 9rem;
+      color: $teaGreen;
+    }
+  }
+
+  // word-definition-wrapper 
+  .word-definition-wrapper {
+    padding: 0 100px;
+    position: relative;
+    top: -15px;
+    text-align: center;
+  }
+
+  // word-synonyms
+  .word-synonyms {
+    margin-left: 15%;
+    p {
+      @include font-card-headline;
+      color: $orange;
+    }
+    span {
+      @include span-tags;
+    }
+  }
+
+  // word-antonyms
+  .word-antonyms {
+    margin-right: 15%;
+    float: right;
+    p {
+      @include font-card-headline;
+      color: $magenta;
+      text-align: right;
+      margin-right: 1rem;
+    }
+    span {
+      @include span-tags;
+    }
+  }
+
+  // word-sentence
+  .word-sentence {
+    margin-left: 15%;
+    clear: both;
+    p {
+      @include font-card-headline;
+      color: $blue;
+    }
+    span {
+      @include span-tags;
+    }
+  }
+}
