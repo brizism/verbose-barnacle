@@ -7,14 +7,14 @@ class UI {
   paint(word){
     word.results.forEach(i => {
       const wordDiv = document.createElement('div');
-      const synSpan = document.createElement('span');
-      const antSpan = document.createElement('span');
-      const senSpan = document.createElement('span');
+      // const synSpan = document.createElement('span');
+      // const antSpan = document.createElement('span');
+      // const senSpan = document.createElement('span');
       wordDiv.classList.add('word-card');
       wordDiv.setAttribute('id', 'word-card')
-      synSpan.classList.add('word-synonyms-span');
-      antSpan.classList.add('word-antonyms-span');
-      senSpan.classList.add('word-sentence-span');
+      // synSpan.classList.add('word-synonyms-span');
+      // antSpan.classList.add('word-antonyms-span');
+      // senSpan.classList.add('word-sentence-span');
 
       
       //console.log(synSpan);
@@ -34,13 +34,11 @@ class UI {
         </div>
         <div id="word-antonyms" class="word-antonyms">
           <p class="antonyms-hl">antonyms:</p>
-          <span class="word-antonyms">cool</span>
-          <span class="word-antonyms">coolai</span>
-          <span class="word-antonyms">yay</span>
+          <span>${i.antonyms}</span>
         </div>
         <div id="word-sentence" class="word-sentence">
           <p>use it in a sentence:</p>
-          <span class="word-sentence">I profited from his example</span>
+          <span class="word-sentence">${i.examples}</span>
         </div>
       `
       this.word.appendChild(wordDiv);
