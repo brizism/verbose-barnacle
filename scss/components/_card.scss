@@ -15,7 +15,8 @@
 }
 
 #main {
-  .word-not-found {
+  .word-not-found,
+  .word-not-entered {
     font-size: 3rem;
     text-align: center;
     color: $navy-blue;
