@@ -23,7 +23,9 @@ searchForm.addEventListener('submit', e => {
 
       // Clear words
       ui.clearWord();
-  } 
+  } else {
+    ui.showMessage('Looks like you did not enter a word 😬');
+  }
 
   // Clear input
   searchInput.value = '';

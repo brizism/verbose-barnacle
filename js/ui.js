@@ -55,16 +55,45 @@ class UI {
     
   }
 
-  // Show alert message
+  // Show message when no word is entered
+  showMessage(message){
+    // Clear any remaining messages
+    this.clearMessage();
+
+    const h2 = document.createElement('h2');
+    h2.classList.add('word-not-entered');
+    h2.appendChild(document.createTextNode(message));
+    this.word.appendChild(h2);
+
+    // Timeout after 3sec
+    setTimeout(() => {
+      this.clearMessage();
+    }, 3000);
+  }
+
+  // Clear alert message
+  clearMessage(){
+    const currentMessage = document.querySelector('.word-not-entered');
+    currentMessage ? currentMessage.remove() : currentMessage; 
+
+    const currentAlert = document.querySelector('.word-not-found');
+    currentAlert ? currentAlert.remove() : currentAlert;
+  }
+
+  // Show alert message when word not found
   showAlert(message){
     const h2 = document.createElement('h2');
     h2.classList.add('word-not-found');
     h2.appendChild(document.createTextNode(message));
     this.word.appendChild(h2);
-    
+
+    // Timeout after 3sec
+    setTimeout(() => {
+      this.clearMessage();
+    }, 3000);
   }
 
-  // Clear word
+  // Clear words from UI
   clearWord(){
     this.word.innerHTML = '';
   }
