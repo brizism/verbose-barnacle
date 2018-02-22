@@ -18,9 +18,9 @@ searchForm.addEventListener('submit', e => {
   if(searchWord !== ''){
     // Make http call
     word.getWords(searchWord)
-      .then(data => data.message === 'word not found' ? console.log('word not found') : ui.paint(data.wordData))
+      .then(data => data.wordData.success === false ? ui.showAlert('Oops! word not found 😕') : ui.paint(data.wordData))
       .catch(err => console.log(err))
-      
+
       // Clear words
       ui.clearWord();
   } 

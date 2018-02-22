@@ -55,6 +55,15 @@ class UI {
     
   }
 
+  // Show alert message
+  showAlert(message){
+    const h2 = document.createElement('h2');
+    h2.classList.add('word-not-found');
+    h2.appendChild(document.createTextNode(message));
+    this.word.appendChild(h2);
+    
+  }
+
   // Clear word
   clearWord(){
     this.word.innerHTML = '';
