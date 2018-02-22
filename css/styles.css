@@ -159,6 +159,11 @@ p {
   .header #search-input::placeholder {
     color: #eff2f7; }
 
+#main .word-not-found {
+  font-size: 3rem;
+  text-align: center;
+  color: #1d243d; }
+
 .word-card {
   width: 50%;
   background: white;

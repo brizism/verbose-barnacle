@@ -14,6 +14,14 @@
   color: $dark-grey; 
 }
 
+#main {
+  .word-not-found {
+    font-size: 3rem;
+    text-align: center;
+    color: $navy-blue;
+  }
+}
+
 .word-card {
   width: 50%;
   background: white;
