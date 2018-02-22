@@ -20,10 +20,10 @@ searchForm.addEventListener('submit', e => {
     word.getWords(searchWord)
       .then(data => data.message === 'word not found' ? console.log('word not found') : ui.paint(data.wordData))
       .catch(err => console.log(err))
-  } else {
-    // Clear words
-    ui.clearWord();
-  }
+      
+      // Clear words
+      ui.clearWord();
+  } 
 
   // Clear input
   searchInput.value = '';
