@@ -175,10 +175,12 @@ p {
   .word-card .word-header {
     display: flex;
     justify-content: space-between;
-    font-size: 30px;
+    font-size: 2.1rem;
     padding: 0 50px 0 40px;
     position: relative;
-    top: 40px; }
+    top: 3rem;
+    color: #9348E7;
+    font-family: "Circular Std Bold"; }
   .word-card .word-wrapper {
     display: flex;
     justify-content: center; }
