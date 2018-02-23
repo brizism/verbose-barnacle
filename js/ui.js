@@ -5,21 +5,9 @@ class UI {
 
   // Display word info in UI
   paint(word){
+    let output = '<div id="word-card" class="word-card">'
     word.results.forEach(i => {
-      const wordDiv = document.createElement('div');
-      // const synSpan = document.createElement('span');
-      // const antSpan = document.createElement('span');
-      // const senSpan = document.createElement('span');
-      wordDiv.classList.add('word-card');
-      wordDiv.setAttribute('id', 'word-card')
-      // synSpan.classList.add('word-synonyms-span');
-      // antSpan.classList.add('word-antonyms-span');
-      // senSpan.classList.add('word-sentence-span');
-
-      
-      //console.log(synSpan);
-
-      wordDiv.innerHTML = `
+      output += `
         <div class="word-wrapper">
           <span class="word-first-letter">${word.word.slice(0,1).toUpperCase()}</span>
           <h1 class="word">${word.word}</h1>
@@ -30,30 +18,43 @@ class UI {
         </div>
         <div id="word-synonyms" class="word-synonyms">
           <p class="synonyms-hl">synonyms:</p>
-          <span>${i.synonyms}</span>
+          <span>
+            ${this.synSpan(i.synonyms)}
+          </span>
         </div>
         <div id="word-antonyms" class="word-antonyms">
           <p class="antonyms-hl">antonyms:</p>
-          <span>${i.antonyms}</span>
+          <span>
+            ${!i.antonyms ? '💩' : i.antonyms}
+          </span>
         </div>
         <div id="word-sentence" class="word-sentence">
           <p>use it in a sentence:</p>
-          <span class="word-sentence">${i.examples}</span>
+          <span>${!i.examples ? '💩' : i.examples}</span>
         </div>
       `
-      this.word.appendChild(wordDiv);
+      this.word.innerHTML = output;
+      // this.word.appendChild(wordDiv);
       //document.getElementById('word-synonyms').appendChild(synSpan);
     });
     
-
-
-
-    
-    document.getElementById('word-antonyms');
-    document.getElementById('word-sentence');
-      
-    
   }
+
+  synSpan(synonyms){
+    const spanDiv = document.getElementById('word-synonyms');
+    if(!synonyms){
+      return '😑';
+    }else if(synonyms.length > 1){
+      synonyms.forEach(i => {
+        const span = document.createElement('span');
+        span.innerHTML = i;
+        console.log(span)
+      })
+    }else {
+      return synonyms
+    }
+  }
+
 
   // Show message when no word is entered
   showMessage(message){
