@@ -121,11 +121,19 @@ p {
   font-size: 2rem;
   color: #4e5e75; }
 
-.header svg {
+.header .triangle-one {
   position: absolute;
   top: 0;
   z-index: -9;
   right: 5%; }
+
+.header .triangle-two {
+  position: absolute;
+  top: 75%; }
+
+.header .triangle-three {
+  position: absolute;
+  top: 180%; }
 
 .header h1 {
   color: #1d243d;

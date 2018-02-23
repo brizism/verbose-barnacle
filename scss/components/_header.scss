@@ -1,9 +1,17 @@
 .header {
-  svg {
+  .triangle-one {
     position: absolute;
     top: 0;
     z-index: -9;
     right: 5%;
+  }
+  .triangle-two {
+    position: absolute;
+    top: 75%;
+  }
+  .triangle-three {
+    position: absolute;
+    top: 180%;
   }
   h1 {
     color: $navy-blue;
