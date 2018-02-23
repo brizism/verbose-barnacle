@@ -6,8 +6,12 @@ class UI {
   // Display word info in UI
   paint(word){
     let output = '<div id="word-card" class="word-card">'
-    word.results.forEach(i => {
+    word.results.forEach((i, index) => {
       output += `
+        <div class="word-header">
+          <div class="word-num">${index + 1}</div>
+          <div class="save-word">📌</div>
+        </div>
         <div class="word-wrapper">
           <span class="word-first-letter">${word.word.slice(0,1).toUpperCase()}</span>
           <h1 class="word">${word.word}</h1>
