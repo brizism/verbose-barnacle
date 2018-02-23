@@ -121,6 +121,15 @@ p {
   font-size: 2rem;
   color: #4e5e75; }
 
+p::selection {
+  background: #7BEFBC; }
+
+h1::selection {
+  background: #fce823; }
+
+span::selection {
+  background: #bab6ff; }
+
 .header .triangle-one {
   position: absolute;
   top: 0;

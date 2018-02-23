@@ -32,3 +32,15 @@ p {
   font-size: 2rem;
   color: $dark-grey;
 }
+
+p::selection {
+  background: $teaGreen;
+}
+
+h1::selection {
+  background: $yellow;
+}
+
+span::selection {
+  background: $violet;
+}
