@@ -55,6 +55,13 @@
     top: 3rem;
     color: $purple;
     font-family: $font-circular-bold;
+
+    .save-word {
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.5)
+      }
+    }
   }
 
   // word-wrapper

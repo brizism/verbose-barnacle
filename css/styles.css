@@ -197,6 +197,9 @@ p {
     top: 3rem;
     color: #9348E7;
     font-family: "Circular Std Bold"; }
+    .word-card .word-header .save-word:hover {
+      cursor: pointer;
+      transform: scale(1.5); }
   .word-card .word-wrapper {
     display: flex;
     justify-content: center; }
