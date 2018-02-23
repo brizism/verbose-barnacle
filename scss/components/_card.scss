@@ -24,12 +24,26 @@
 }
 
 .word-card {
+  position: relative;
   width: 50%;
   background: white;
   margin: 0 auto;
+  margin-bottom: 6rem;
   height: auto;
   border-radius: 15px;
   box-shadow: 3px 3px 11px 0px rgba(0,0,0, 0.1);
+
+  &:nth-child(even){
+    right: 15%;
+  }
+  
+  &:nth-child(odd){
+    left: 15%;
+  }
+
+  &:first-child {
+    left: 0;
+  }
 
   // word-header {
   .word-header {

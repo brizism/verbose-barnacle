@@ -166,12 +166,20 @@ p {
   color: #1d243d; }
 
 .word-card {
+  position: relative;
   width: 50%;
   background: white;
   margin: 0 auto;
+  margin-bottom: 6rem;
   height: auto;
   border-radius: 15px;
   box-shadow: 3px 3px 11px 0px rgba(0, 0, 0, 0.1); }
+  .word-card:nth-child(even) {
+    right: 15%; }
+  .word-card:nth-child(odd) {
+    left: 15%; }
+  .word-card:first-child {
+    left: 0; }
   .word-card .word-header {
     display: flex;
     justify-content: space-between;
