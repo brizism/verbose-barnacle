@@ -5,9 +5,10 @@ class UI {
 
   // Display word info in UI
   paint(word){
-    let output = '<div id="word-card" class="word-card">'
     word.results.forEach((i, index) => {
-      output += `
+      const wordDiv = document.createElement('div');
+      wordDiv.classList.add('word-card');
+      wordDiv.innerHTML = `
         <div class="word-header">
           <div class="word-num">${index + 1}</div>
           <div class="save-word">📌</div>
@@ -37,9 +38,7 @@ class UI {
           <span>${!i.examples ? '💩' : i.examples}</span>
         </div>
       `
-      this.word.innerHTML = output;
-      // this.word.appendChild(wordDiv);
-      //document.getElementById('word-synonyms').appendChild(synSpan);
+      this.word.appendChild(wordDiv);
     });
     
   }
@@ -102,4 +101,5 @@ class UI {
   clearWord(){
     this.word.innerHTML = '';
   }
+  
 }
