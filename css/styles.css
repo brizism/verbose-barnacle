@@ -172,6 +172,13 @@ p {
   height: auto;
   border-radius: 15px;
   box-shadow: 3px 3px 11px 0px rgba(0, 0, 0, 0.1); }
+  .word-card .word-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    padding: 0 50px 0 40px;
+    position: relative;
+    top: 40px; }
   .word-card .word-wrapper {
     display: flex;
     justify-content: center; }

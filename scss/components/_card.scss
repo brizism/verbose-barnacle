@@ -31,6 +31,16 @@
   border-radius: 15px;
   box-shadow: 3px 3px 11px 0px rgba(0,0,0, 0.1);
 
+  // word-header {
+  .word-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    padding: 0 50px 0 40px;
+    position: relative;
+    top: 40px;
+  }
+
   // word-wrapper
   .word-wrapper {
     display: flex;
