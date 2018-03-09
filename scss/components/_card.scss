@@ -12,6 +12,7 @@
   margin: 0 1rem 1rem 0;
   display: inline-block;
   color: $dark-grey; 
+  cursor: pointer;
 }
 
 #main {
@@ -137,5 +138,10 @@
     span {
       @include span-tags;
     }
+  }
+
+  // hover for all spans
+  .span:hover {
+    background: $teaGreen;
   }
 }

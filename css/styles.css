@@ -246,7 +246,8 @@ span::selection {
       font-size: 1.4rem;
       margin: 0 1rem 1rem 0;
       display: inline-block;
-      color: #4e5e75; }
+      color: #4e5e75;
+      cursor: pointer; }
   .word-card .word-antonyms {
     margin-right: 15%;
     float: right; }
@@ -264,7 +265,8 @@ span::selection {
       font-size: 1.4rem;
       margin: 0 1rem 1rem 0;
       display: inline-block;
-      color: #4e5e75; }
+      color: #4e5e75;
+      cursor: pointer; }
   .word-card .word-sentence {
     margin-left: 15%;
     clear: both; }
@@ -280,4 +282,7 @@ span::selection {
       font-size: 1.4rem;
       margin: 0 1rem 1rem 0;
       display: inline-block;
-      color: #4e5e75; }
+      color: #4e5e75;
+      cursor: pointer; }
+  .word-card .span:hover {
+    background: #7BEFBC; }
