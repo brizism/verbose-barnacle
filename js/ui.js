@@ -21,17 +21,15 @@ class UI {
         <div class="word-definition-wrapper">
           <p class="word-definition">${el.definition}</p>
         </div>
-        <div id="word-synonyms" class="word-synonyms">
+        <div class="word-synonyms">
           <p class="synonyms-hl">synonyms:</p>
             ${!el.synonyms ? '💩' : el.synonyms.length > 1 ? el.synonyms.map(synonym => `<span class="span">${synonym}</span>`) : `<span class="span">${el.synonyms}</span>`}
         </div>
-        <div id="word-antonyms" class="word-antonyms">
+        <div class="word-antonyms">
           <p class="antonyms-hl">antonyms:</p>
-          <span>
-            ${!el.antonyms ? '💩' : el.antonyms}
-          </span>
+            ${!el.antonyms ? '💩' : `<span class="span">${el.antonyms}</span>`}
         </div>
-        <div id="word-sentence" class="word-sentence">
+        <div class="word-sentence">
           <p>use it in a sentence:</p>
           <span>${!el.examples ? '💩' : el.examples}</span>
         </div>
