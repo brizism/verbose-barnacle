@@ -5,7 +5,7 @@ class UI {
 
   // Display word info in UI
   paint(word){
-    word.results.forEach((i, index) => {
+    word.results.forEach((el, index) => {
       const wordDiv = document.createElement('div');
       wordDiv.classList.add('word-card');
       wordDiv.innerHTML = `
@@ -16,24 +16,24 @@ class UI {
         <div class="word-wrapper">
           <span class="word-first-letter">${word.word.slice(0,1).toUpperCase()}</span>
           <h1 class="word">${word.word}</h1>
-          <span class="word-part-of-speech">${i.partOfSpeech}</span>
+          <span class="word-part-of-speech">${el.partOfSpeech}</span>
         </div>
         <div class="word-definition-wrapper">
-          <p class="word-definition">${i.definition}</p>
+          <p class="word-definition">${el.definition}</p>
         </div>
         <div id="word-synonyms" class="word-synonyms">
           <p class="synonyms-hl">synonyms:</p>
-            ${!i.synonyms ? '💩' : i.synonyms.length > 1 ? i.synonyms.map(synonym => `<span class="span">${synonym}</span>`) : `<span class="span">${i.synonyms}</span>`}
+            ${!el.synonyms ? '💩' : el.synonyms.length > 1 ? el.synonyms.map(synonym => `<span class="span">${synonym}</span>`) : `<span class="span">${el.synonyms}</span>`}
         </div>
         <div id="word-antonyms" class="word-antonyms">
           <p class="antonyms-hl">antonyms:</p>
           <span>
-            ${!i.antonyms ? '💩' : i.antonyms}
+            ${!el.antonyms ? '💩' : el.antonyms}
           </span>
         </div>
         <div id="word-sentence" class="word-sentence">
           <p>use it in a sentence:</p>
-          <span>${!i.examples ? '💩' : i.examples}</span>
+          <span>${!el.examples ? '💩' : el.examples}</span>
         </div>
       `
       this.word.appendChild(wordDiv);
@@ -43,15 +43,22 @@ class UI {
     
   }
 
+  // Second http call on click span
   fetchAgain(){
     let span = document.getElementsByClassName('span');
     let allSpans = Array.from(span);
     allSpans.map(span => span.addEventListener('click', (e) => {
       const palabra = e.target.innerHTML;
       word.getWords(palabra)
-        .then(res => console.log(res))
+        .then(res => this.repaint(res))
         .catch(err => console.log(err))
     }))
+  }
+
+  // Repaint data 
+  repaint(word){
+    this.clearWord();
+    this.paint(word.wordData)
   }
 
   // Show message when no word is entered
