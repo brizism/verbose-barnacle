@@ -23,9 +23,7 @@ class UI {
         </div>
         <div id="word-synonyms" class="word-synonyms">
           <p class="synonyms-hl">synonyms:</p>
-          <span>
-            ${this.synSpan(i.synonyms)}
-          </span>
+            ${!i.synonyms ? '💩' : i.synonyms.length > 1 ? i.synonyms.map(synonym => `<span>${synonym}</span>`) : `<span>${i.synonyms}</span>`}
         </div>
         <div id="word-antonyms" class="word-antonyms">
           <p class="antonyms-hl">antonyms:</p>
@@ -42,22 +40,6 @@ class UI {
     });
     
   }
-
-  synSpan(synonyms){
-    const spanDiv = document.getElementById('word-synonyms');
-    if(!synonyms){
-      return '😑';
-    }else if(synonyms.length > 1){
-      synonyms.forEach(i => {
-        const span = document.createElement('span');
-        span.innerHTML = i;
-        console.log(span)
-      })
-    }else {
-      return synonyms
-    }
-  }
-
 
   // Show message when no word is entered
   showMessage(message){
