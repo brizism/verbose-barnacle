@@ -23,7 +23,7 @@ class UI {
         </div>
         <div id="word-synonyms" class="word-synonyms">
           <p class="synonyms-hl">synonyms:</p>
-            ${!i.synonyms ? '💩' : i.synonyms.length > 1 ? i.synonyms.map(synonym => `<span>${synonym}</span>`) : `<span>${i.synonyms}</span>`}
+            ${!i.synonyms ? '💩' : i.synonyms.length > 1 ? i.synonyms.map(synonym => `<span class="span">${synonym}</span>`) : `<span class="span">${i.synonyms}</span>`}
         </div>
         <div id="word-antonyms" class="word-antonyms">
           <p class="antonyms-hl">antonyms:</p>
@@ -38,7 +38,20 @@ class UI {
       `
       this.word.appendChild(wordDiv);
     });
+
+    this.fetchAgain()
     
+  }
+
+  fetchAgain(){
+    let span = document.getElementsByClassName('span');
+    let allSpans = Array.from(span);
+    allSpans.map(span => span.addEventListener('click', (e) => {
+      const palabra = e.target.innerHTML;
+      word.getWords(palabra)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+    }))
   }
 
   // Show message when no word is entered
