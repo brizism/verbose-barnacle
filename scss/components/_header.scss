@@ -37,6 +37,8 @@
       font-size: 1.6rem;
       padding: 2rem 4.2rem 0 4.2rem;
     }
+
+    @media (min-width: $breakpoint-laptop){ font-size: 1.2rem; }
   }
 
   #search-input {
