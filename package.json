@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "compile-sass": "node-sass scss/main.scss css/styles.css -w"
+    "start": "browser-sync -w",
+    "compile-sass": "node-sass scss/main.scss css/styles.css -w --source-map true --output-style compressed"
   },
   "repository": {
     "type": "git",
@@ -16,7 +17,8 @@
     "url": "https://github.com/brizism/verbose-barnacle/issues"
   },
   "homepage": "https://github.com/brizism/verbose-barnacle#readme",
-  "dependencies": {
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
     "node-sass": "^4.7.2"
   }
 }

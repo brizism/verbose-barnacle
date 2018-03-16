@@ -1,4 +1,7 @@
 config.js
+node_modules
+package-lock.json
+styles.css.map
 
 CircularStd-Book.woff
 CircularStd-BookItalic.woff
@@ -8,3 +11,4 @@ CircularStd-Black.woff
 CircularStd-BlackItalic.woff
 CircularStd-Bold.woff
 CircularStd-BoldItalic.woff
+
