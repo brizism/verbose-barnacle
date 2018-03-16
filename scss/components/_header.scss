@@ -1,4 +1,36 @@
 .header {
+
+  &__img {
+    width: 4rem;
+    position: fixed;
+    top: 10rem;
+  }
+
+  #circle {
+
+    &--1{
+      width: 3rem;
+      position: absolute;
+      top: -4rem;
+      left: 36%;
+    }
+    &--2{
+      width: 3rem;
+      position: absolute;
+      top: 40%;
+      left: 4%;
+      --primary-color: $violet;
+    }
+  }
+
+  #triangle {
+    
+    &--1{
+      width: 4rem;
+      position: absolute;
+      left: 85%;
+    }
+  }
   .triangle-one {
     position: absolute;
     top: 0;
@@ -61,6 +93,6 @@
       color: $light-grey;
     }
 
-    @media (min-width: $breakpoint-laptop){ width: 60%; }
+    @media (min-width: $breakpoint-laptop){ width: 50%; }
   }
 }

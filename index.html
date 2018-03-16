@@ -10,20 +10,42 @@
 <body>
   <main>
     <header class="header">
-      <svg class="triangle-one" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-          viewBox="0 0 1976.8 1195.7" enable-background="new 0 0 1976.8 1195.7" xml:space="preserve">
-      <polygon fill="#EBF3FF" points="0,0 1971,0 0,1195.7 "/>
-      </svg>
-      <?xml version="1.0" encoding="utf-8"?>
+      <img class="header__img" src="img/dots.svg" alt="svg dots">
 
-      <svg class="triangle-two" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        viewBox="0 0 2075.9 1775.1" enable-background="new 0 0 2075.9 1775.1" xml:space="preserve">
-      <polygon fill="#EBF3FF" points="2075.9,1190.3 215,0 0,1775.1 "/>
+      <svg style="display: none">
+        <symbol id="circle" viewBox="0 0 57.8 58">
+          <circle fill="none" stroke="#7BEFBC" style="stroke: var(--primary-color, #7BEFBC)" stroke-width="15" stroke-miterlimit="10" cx="29.1" cy="29" r="21"/>
+        </symbol>
+      </svg>
+
+      <svg id="circle--1">
+        <use xlink:href="#circle" />
+      </svg>
+
+      <svg id="circle--2">
+        <use xlink:href="#circle" />
+      </svg>
+
+      <svg style="display: none">
+        <symbol id="triangle" viewBox="0 0 77.4 86.2">
+          <polygon fill="none" stroke="#BAB6FF" style="stroke: var(--primary-color, #BAB6FF)" stroke-width="15" stroke-miterlimit="10" points="32.7,72.2 63.7,43.7 14,17.1 "/>
+        </symbol>
+      </svg>
+
+      <svg id="triangle--1">
+        <use xlink:href="#triangle" />
+      </svg>
+
+      <svg class="triangle-one" x="0px" y="0px" viewBox="0 0 1976.8 1195.7">
+        <polygon fill="#EBF3FF" points="0,0 1971,0 0,1195.7 "/>
+      </svg>
+
+      <svg class="triangle-two" x="0px" y="0px" viewBox="0 0 2075.9 1775.1">
+        <polygon fill="#EBF3FF" points="2075.9,1190.3 215,0 0,1775.1 "/>
       </svg>
       
-      <svg class="triangle-three" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        viewBox="0 0 2069.4 603.7" enable-background="new 0 0 2069.4 603.7" xml:space="preserve">
-      <polygon fill="#EBF3FF" points="0,530.3 2069.4,0 2069.4,603.7 "/>
+      <svg class="triangle-three" x="0px" y="0px" viewBox="0 0 2069.4 603.7">
+        <polygon fill="#EBF3FF" points="0,530.3 2069.4,0 2069.4,603.7 "/>
       </svg>
 
       <h1>verbose-barnacle</h1>
