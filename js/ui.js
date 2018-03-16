@@ -23,15 +23,15 @@ class UI {
         </div>
         <div class="word-card__synonyms">
           <p class="word-card__synonyms__hl">synonyms:</p>
-            ${!el.synonyms ? '💩' : el.synonyms.length > 1 ? el.synonyms.map(synonym => `<span class="span">${synonym}</span>`) : `<span class="span">${el.synonyms}</span>`}
+            ${!el.synonyms ? '✖️' : el.synonyms.length > 1 ? el.synonyms.map(synonym => `<span class="span">${synonym}</span>`) : `<span class="span">${el.synonyms}</span>`}
         </div>
         <div class="word-card__antonyms">
           <p class="word-card__antonyms__hl">antonyms:</p>
-            ${!el.antonyms ? '💩' : `<span class="span">${el.antonyms}</span>`}
+            ${!el.antonyms ? '✖️' : `<span class="span">${el.antonyms}</span>`}
         </div>
         <div class="word-card__sentence">
           <p>use it in a sentence:</p>
-            ${!el.examples ? '💩' : `<span>${el.examples}</span>`}
+            ${!el.examples ? '✖️' : `<span>${el.examples}</span>`}
         </div>
       `
       this.word.appendChild(wordDiv);
