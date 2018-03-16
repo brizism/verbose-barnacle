@@ -1,3 +1,4 @@
+// mixins
 @mixin font-card-headline {
   font-family: "Circular Std Bold";
   font-size: 1.6rem;
@@ -14,128 +15,101 @@
   color: $dark-grey; 
 }
 
+// styles
 #main {
-  .word-not-found,
-  .word-not-entered {
-    font-size: 3rem;
-    text-align: center;
-    color: $navy-blue;
-  }
-}
-
-.word-card {
-  position: relative;
-  width: 50%;
-  background: white;
-  margin: 0 auto;
-  margin-bottom: 6rem;
-  height: auto;
-  border-radius: 15px;
-  box-shadow: 3px 3px 11px 0px rgba(0,0,0, 0.1);
-
-  &:nth-child(even){
-    right: 15%;
-  }
-  
-  &:nth-child(odd){
-    left: 15%;
-  }
-
-  &:first-child {
-    left: 0;
-  }
-
-  // word-header {
-  .word-header {
-    display: flex;
-    justify-content: space-between;
-    font-size: 2.1rem;
-    padding: 0 50px 0 40px;
+  .word-card {
     position: relative;
-    top: 3rem;
-    color: $purple;
-    font-family: $font-circular-bold;
+    width: 90%;
+    background: white;
+    margin: 0 auto;
+    padding: 2rem;
+    margin-bottom: 6rem;
+    height: auto;
+    border-radius: 1.5rem;
+    box-shadow: 3px 3px 11px 0px rgba(0,0,0, 0.1);
 
-    .save-word {
-      &:hover {
-        cursor: pointer;
-        transform: scale(1.5)
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 2.1rem;
+      position: relative;
+      top: 0;
+      color: $purple;
+      font-family: $font-circular-bold;
+
+      .save-word {
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.5)
+        }
       }
     }
-  }
 
-  // word-wrapper
-  .word-wrapper {
-    display: flex;
-    justify-content: center;
+    &__wrapper {
+      display: flex;
 
-    .word-first-letter {
-      font-size: 24rem;
-      font-family: $font-circular-bold;
-      color: $light-grey;
+      &__first-letter {
+        font-size: 15rem;
+        font-family: $font-circular-bold;
+        color: $light-grey;
+      }
+
+      &__word {
+        align-self: center;
+        position: relative;
+        right: 7.5rem;
+        top: 3.3rem;
+      }
+
+      &__speech {
+        align-self: center;
+        font-size: 2rem;
+        position: relative;
+        right: 9rem;
+        color: $teaGreen;
+      }
     }
 
-    .word {
-      align-self: center;
+    &__definition-wrapper {
       position: relative;
-      right: 8.5rem;
-      top: 3.3rem;
+      top: -15px;
+      text-align: center;
     }
 
-    .word-part-of-speech {
-      align-self: center;
-      font-size: 2rem;
-      position: relative;
-      right: 9rem;
-      color: $teaGreen;
-    }
-  }
+    &__synonyms {
+      margin-left: 5%;
 
-  // word-definition-wrapper 
-  .word-definition-wrapper {
-    padding: 0 100px;
-    position: relative;
-    top: -15px;
-    text-align: center;
-  }
+      p {
+        @include font-card-headline;
+        color: $orange;
+      }
+      span {
+        @include span-tags;
+      }
+    }
 
-  // word-synonyms
-  .word-synonyms {
-    margin-left: 15%;
-    p {
-      @include font-card-headline;
-      color: $orange;
-    }
-    span {
-      @include span-tags;
-    }
-  }
+    &__antonyms {
+      margin-left: 5%;
 
-  // word-antonyms
-  .word-antonyms {
-    margin-right: 15%;
-    float: right;
-    p {
-      @include font-card-headline;
-      color: $magenta;
-      text-align: right;
-      margin-right: 1rem;
+      p {
+        @include font-card-headline;
+        color: $magenta;
+      }
+      span {
+        @include span-tags;
+      }
     }
-    span {
-      @include span-tags;
-    }
-  }
 
-  // word-sentence
-  .word-sentence {
-    margin-left: 15%;
-    clear: both;
-    p {
-      @include font-card-headline;
-      color: $blue;
-    }
-    span {
-      @include span-tags;
+    &__sentence {
+      margin-left: 5%;
+      clear: both;
+      p {
+        @include font-card-headline;
+        color: $blue;
+      }
+      span {
+        @include span-tags;
+      }
     }
   }
 
@@ -147,4 +121,12 @@
   .span:hover {
     background: $teaGreen;
   }
+
+  .word-not-found,
+  .word-not-entered {
+    font-size: 3rem;
+    text-align: center;
+    color: $navy-blue;
+  }
 }
+
