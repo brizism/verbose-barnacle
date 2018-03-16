@@ -18,6 +18,10 @@
     text-align: center;
     font-size: 3rem;
     padding-top: 5rem;
+
+    @media (min-width: $breakpoint-tablet){
+      font-size: 4rem;
+    }
   }
 
   p {
@@ -28,6 +32,11 @@
     line-height: 1.4;
     padding: 2rem 2.2rem 0 2.2rem;
     -webkit-font-smoothing: initial;
+
+    @media (min-width: $breakpoint-tablet){
+      font-size: 1.6rem;
+      padding: 2rem 4.2rem 0 4.2rem;
+    }
   }
 
   #search-input {
