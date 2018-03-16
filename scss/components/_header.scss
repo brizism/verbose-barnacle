@@ -16,7 +16,7 @@
   h1 {
     color: $navy-blue;
     text-align: center;
-    font-size: 4.5rem;
+    font-size: 3rem;
     padding-top: 5rem;
   }
 
@@ -25,12 +25,13 @@
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
-    padding-top: 2rem;
+    line-height: 1.4;
+    padding: 2rem 2.2rem 0 2.2rem;
     -webkit-font-smoothing: initial;
   }
 
   #search-input {
-    width: 60%;
+    width: 80%;
     padding: 1.9rem;
     border-radius: 10rem;
     border: none;
