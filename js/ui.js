@@ -9,36 +9,36 @@ class UI {
       const wordDiv = document.createElement('div');
       wordDiv.classList.add('word-card');
       wordDiv.innerHTML = `
-        <div class="word-header">
-          <div class="word-num">${index + 1}</div>
+        <div class="word-card__header">
+          <div>${index + 1}</div>
           <div class="save-word">📌</div>
         </div>
-        <div class="word-wrapper">
-          <span class="word-first-letter">${word.word.slice(0,1).toUpperCase()}</span>
-          <h1 class="word">${word.word}</h1>
-          <span class="word-part-of-speech">${el.partOfSpeech}</span>
+        <div class="word-card__wrapper">
+          <span class="word-card__wrapper__first-letter">${word.word.slice(0,1).toUpperCase()}</span>
+          <h1 class="word-card__wrapper__word">${word.word}</h1>
+          <span class="word-card__wrapper__speech">${el.partOfSpeech}</span>
         </div>
-        <div class="word-definition-wrapper">
-          <p class="word-definition">${el.definition}</p>
+        <div class="word-card__definition-wrapper">
+          <p>${el.definition}</p>
         </div>
-        <div class="word-synonyms">
-          <p class="synonyms-hl">synonyms:</p>
+        <div class="word-card__synonyms">
+          <p class="word-card__synonyms__hl">synonyms:</p>
             ${!el.synonyms ? '💩' : el.synonyms.length > 1 ? el.synonyms.map(synonym => `<span class="span">${synonym}</span>`) : `<span class="span">${el.synonyms}</span>`}
         </div>
-        <div class="word-antonyms">
-          <p class="antonyms-hl">antonyms:</p>
+        <div class="word-card__antonyms">
+          <p class="word-card__antonyms__hl">antonyms:</p>
             ${!el.antonyms ? '💩' : `<span class="span">${el.antonyms}</span>`}
         </div>
-        <div class="word-sentence">
+        <div class="word-card__sentence">
           <p>use it in a sentence:</p>
-          <span>${!el.examples ? '💩' : el.examples}</span>
+            ${!el.examples ? '💩' : `<span>${el.examples}</span>`}
         </div>
       `
       this.word.appendChild(wordDiv);
     });
 
     this.fetchAgain()
-    
+    this.clickSave()
   }
 
   // Second http call on click span
@@ -57,6 +57,23 @@ class UI {
   repaint(word){
     this.clearWord();
     this.paint(word.wordData)
+  }
+
+  // Save to localStorage
+  clickSave(){
+    let pin = document.getElementsByClassName('save-word');
+    let allPins = Array.from(pin);
+    allPins.map(pin => pin.addEventListener('click', () => {
+      let nodes = this.word.childNodes;
+      nodes = Array.from(nodes);
+      console.log(nodes);
+    }))
+  }
+
+  saveWord(){
+    const word = document.getElementsByClassName('word');
+    console.log(word)
+
   }
 
   // Show message when no word is entered
