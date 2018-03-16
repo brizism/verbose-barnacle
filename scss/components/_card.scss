@@ -5,9 +5,9 @@
   letter-spacing: 0.6px;
   margin-bottom: 1rem;
 
-  @media (min-width: $breakpoint-tablet){
-    font-size: 2rem;
-  }
+  @media (min-width: $breakpoint-tablet){ font-size: 2rem; }
+  @media (min-width: $breakpoint-l-tablet){ font-size: 2.6rem; }
+  @media (min-width: $breakpoint-laptop){ font-size: 2rem; }
 }
 
 @mixin span-tags {
@@ -18,9 +18,9 @@
   display: inline-block;
   color: $dark-grey; 
 
-  @media (min-width: $breakpoint-tablet){
-    font-size: 1.9rem;
-  }
+  @media (min-width: $breakpoint-tablet){ font-size: 1.9rem; }
+  @media (min-width: $breakpoint-l-tablet){ font-size: 2.6rem; }
+  @media (min-width: $breakpoint-laptop){ font-size: 1.9rem; }
 }
 
 // styles
@@ -88,6 +88,16 @@
           right: 8.5rem;
         }
       }
+
+      @media (min-width: $breakpoint-l-tablet){
+        &__first-letter {
+          font-size: 27rem;
+        }
+
+        &__word {
+          font-size: 5rem;
+        }
+      }
     }
 
     &__definition-wrapper {
@@ -103,6 +113,9 @@
           line-height: 1.2;
         }
       }
+
+      @media (min-width: $breakpoint-l-tablet){ p { font-size: 2.7rem; }}
+      @media (min-width: $breakpoint-laptop){ p { font-size: 2rem; }}
     }
 
     &__synonyms {
@@ -161,6 +174,9 @@
         left: 0;
       }
     }
+
+    @media (min-width: $breakpoint-l-tablet){ max-width: 60rem; }
+    @media (min-width: $breakpoint-laptop){ max-width: 70rem; }
   }
 
   .span {

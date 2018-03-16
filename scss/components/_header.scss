@@ -58,5 +58,7 @@
     &::placeholder {
       color: $light-grey;
     }
+
+    @media (min-width: $breakpoint-laptop){ width: 60%; }
   }
 }
