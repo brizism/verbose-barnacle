@@ -2,8 +2,13 @@
 
   &__img {
     width: 4rem;
-    position: fixed;
+    position: absolute;
     top: 10rem;
+
+    @media (max-width: $breakpoint-phone){
+      width: 2.5rem;
+      top: 2rem;
+    }
   }
 
   #circle {
@@ -13,6 +18,11 @@
       position: absolute;
       top: -4rem;
       left: 36%;
+
+      @media (max-width: $breakpoint-phone){
+        width: 1.5rem;
+        top: -5rem;
+      }
     }
     &--2{
       width: 3rem;
@@ -20,6 +30,10 @@
       top: 40%;
       left: 4%;
       --primary-color: $violet;
+
+      @media (max-width: $breakpoint-phone){
+        width: 1.5rem;
+      }
     }
   }
 
@@ -29,13 +43,44 @@
       width: 4rem;
       position: absolute;
       left: 85%;
+
+      @media (max-width: $breakpoint-phone){
+        width: 1.5rem;
+        left: 88%;
+      }
+    }
+
+    &--2{
+      width: 4rem;
+      position: absolute;
+      left: 85%;
+      bottom: 30%;
+      --primary-color: $yellow;
+
+      @media (max-width: $breakpoint-phone){
+        width: 2rem;
+        bottom: 15%;
+      }
     }
   }
-  .triangle-one {
-    position: absolute;
-    top: 0;
-    z-index: -9;
-    right: 5%;
+  #big-triangle {
+
+    &--1{
+      position: absolute;
+      width: 100%;
+      height: auto;
+      right: 5%;
+      z-index: -9;
+    }
+
+    &--2{
+      position: absolute;
+      top: 240%;
+      width: 100%;
+      height: auto;
+      transform: rotate(67deg);
+      z-index: -9;
+    }
   }
   .triangle-two {
     position: absolute;
@@ -85,7 +130,7 @@
     left: 50%;
     transform: translate(-50%);
     margin: 6rem 0;
-    box-shadow: 3px 3px 11px 0px rgba(0,0,0, 0.1);
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.18);
     caret-color: $teaGreen;
     color: $dark-grey;
 
