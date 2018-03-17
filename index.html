@@ -11,6 +11,7 @@
 <body>
   <main>
     <header class="header">
+      <!-- small vector shapes -->
       <img class="header__img" src="img/dots.svg" alt="svg dots">
 
       <svg style="display: none">
@@ -37,8 +38,23 @@
         <use xlink:href="#triangle" />
       </svg>
 
-      <svg class="triangle-one" x="0px" y="0px" viewBox="0 0 1976.8 1195.7">
-        <polygon fill="#EBF3FF" points="0,0 1971,0 0,1195.7 "/>
+      <svg id="triangle--2">
+        <use xlink:href="#triangle" />
+      </svg>
+
+      <!-- big vector triangle shapes -->
+      <svg style="display: none">
+        <symbol id="big-triangle" viewBox="0 0 1976.8 1195.7">
+          <polygon fill="#EBF3FF" points="0,0 1971,0 0,1195.7 "/>
+        </symbol>
+      </svg>
+
+      <svg id="big-triangle--1" width="1538" height="932">
+        <use xlink:href="#big-triangle" />
+      </svg>
+
+      <svg id="big-triangle--2" width="1538" height="932">
+        <use xlink:href="#big-triangle" />
       </svg>
 
       <svg class="triangle-two" x="0px" y="0px" viewBox="0 0 2075.9 1775.1">
