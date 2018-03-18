@@ -1,6 +1,7 @@
 class UI {
   constructor(){
     this.word = document.getElementById('main');
+    this.myWords = document.getElementById('myWords');
   }
 
   // Display word info in UI
@@ -11,7 +12,9 @@ class UI {
       wordDiv.innerHTML = `
         <div class="word-card__header">
           <div>${index + 1}</div>
-          <div class="save-word">📌</div>
+          <form action="" class="save-word">
+            <button type="submit">📌</button>
+          </form>
         </div>
         <div class="word-card__wrapper">
           <span class="word-card__wrapper__first-letter">${word.word.slice(0,1).toUpperCase()}</span>
@@ -63,17 +66,42 @@ class UI {
   clickSave(){
     let pin = document.getElementsByClassName('save-word');
     let allPins = Array.from(pin);
-    allPins.map(pin => pin.addEventListener('click', () => {
-      let nodes = this.word.childNodes;
-      nodes = Array.from(nodes);
-      console.log(nodes);
+    allPins.map(pin => pin.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const word = e.path[2].childNodes[3].innerHTML;
+      const definition = e.path[2].childNodes[5].innerHTML;
+
+      let savedWord = {
+        word,
+        definition
+      };
+
+      if(localStorage.getItem('savedWords') === null){
+        let savedWords = [];
+        savedWords.push(savedWord);
+        localStorage.setItem('savedWords', JSON.stringify(savedWords));
+      } else {
+        let savedWords = JSON.parse(localStorage.getItem('savedWords'));
+        savedWords.push(savedWord);
+        localStorage.setItem('savedWords', JSON.stringify(savedWords))
+      }
     }))
+
+    this.fetchSavedWords();
   }
 
-  saveWord(){
-    const word = document.getElementsByClassName('word');
-    console.log(word)
-
+  // Fetch words from localStorage
+  fetchSavedWords(){
+    // Get saved words from localStorage
+    let savedWords = JSON.parse(localStorage.getItem('savedWords'));
+    
+    savedWords.map(word => {
+      let div = document.createElement('div')
+      div.classList.add('word-card__wrapper')
+      div.insertAdjacentHTML('afterbegin', `${word.word} ${word.definition}`);
+      
+      this.myWords.appendChild(div)
+    })
   }
 
   // Show message when no word is entered
@@ -120,3 +148,7 @@ class UI {
   }
   
 }
+
+
+
+
