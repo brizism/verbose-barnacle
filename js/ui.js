@@ -68,11 +68,13 @@ class UI {
     let allPins = Array.from(pin);
     allPins.map(pin => pin.addEventListener('submit', (e) => {
       e.preventDefault();
-      const word = e.path[2].childNodes[3].innerHTML;
-      const definition = e.path[2].childNodes[5].innerHTML;
+      const word = e.path[2].childNodes[3].childNodes[3].innerHTML;
+      const speech = e.path[2].childNodes[3].childNodes[5].innerHTML;
+      const definition = e.path[2].childNodes[5].childNodes[1].innerHTML;
 
       let savedWord = {
         word,
+        speech,
         definition
       };
 
@@ -96,12 +98,41 @@ class UI {
     let savedWords = JSON.parse(localStorage.getItem('savedWords'));
     
     savedWords.map(word => {
-      let div = document.createElement('div')
-      div.classList.add('word-card__wrapper')
-      div.insertAdjacentHTML('afterbegin', `${word.word} ${word.definition}`);
-      
-      this.myWords.appendChild(div)
+      const div = document.createElement('div');
+      div.classList.add('word-card');
+      div.innerHTML = 
+      `
+      <div class="word-card__wrapper">
+        <span class="word-card__wrapper__first-letter">${word.word.slice(0,1).toUpperCase()}</span>
+        <h1 class="word-card__wrapper__word">${word.word}</h1>
+        <span class="word-card__wrapper__speech">${word.speech}</span>
+      </div>
+      <div class="word-card__definition-wrapper">
+        <p>${word.definition}</p>
+      </div>
+      `
+      this.myWords.appendChild(div);
     })
+    
+    this.deleteWords()
+  }
+
+  // Delete words 
+  deleteWords(){
+    // Get words from localStorage
+    let savedWords = JSON.parse(localStorage.getItem('savedWords'));
+
+    savedWords.forEach(word => {
+      console.log(word)
+    })
+
+    let deleteLink = document.getElementsByClassName('delete');
+    let allDeleteLinks = Array.from(deleteLink);
+
+    allDeleteLinks.map(link => link.addEventListener('click', () => {
+      
+    }))
+
   }
 
   // Show message when no word is entered
