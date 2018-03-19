@@ -12,7 +12,7 @@ class UI {
       wordDiv.innerHTML = `
         <div class="word-card__header">
           <div>${index + 1}</div>
-          <form action="" class="save-word">
+          <form action="" class="word-card__form">
             <button type="submit">📌</button>
           </form>
         </div>
@@ -64,7 +64,7 @@ class UI {
 
   // Save to localStorage
   clickSave(){
-    let pin = document.getElementsByClassName('save-word');
+    let pin = document.getElementsByClassName('word-card__form');
     let allPins = Array.from(pin);
     allPins.map(pin => pin.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -82,10 +82,12 @@ class UI {
         let savedWords = [];
         savedWords.push(savedWord);
         localStorage.setItem('savedWords', JSON.stringify(savedWords));
+        this.showSavedMessage('Word saved!✨')
       } else {
         let savedWords = JSON.parse(localStorage.getItem('savedWords'));
         savedWords.push(savedWord);
         localStorage.setItem('savedWords', JSON.stringify(savedWords))
+        this.showSavedMessage('Word saved!✨')
       }
     }))
 
@@ -100,14 +102,15 @@ class UI {
     savedWords.map(word => {
       const div = document.createElement('div');
       div.classList.add('word-card');
+      div.classList.add('word-card--save');
       div.innerHTML = 
       `
       <div class="word-card__wrapper">
-        <span class="word-card__wrapper__first-letter">${word.word.slice(0,1).toUpperCase()}</span>
-        <h1 class="word-card__wrapper__word">${word.word}</h1>
-        <span class="word-card__wrapper__speech">${word.speech}</span>
+        <a href="#" class="word-card__delete">✖</a>
+        <h1 class="word-card__wrapper__word--save">${word.word}</h1>
+        <span class="word-card__wrapper__speech word-card__wrapper__speech--save">${word.speech}</span>
       </div>
-      <div class="word-card__definition-wrapper">
+      <div class="word-card__definition-wrapper--save">
         <p>${word.definition}</p>
       </div>
       `
@@ -126,13 +129,27 @@ class UI {
       console.log(word)
     })
 
-    let deleteLink = document.getElementsByClassName('delete');
+    let deleteLink = document.getElementsByClassName('word-card__delete');
     let allDeleteLinks = Array.from(deleteLink);
 
     allDeleteLinks.map(link => link.addEventListener('click', () => {
       
     }))
 
+  }
+
+  // Show message when word is saved
+  showSavedMessage(message){
+    this.clearMessage();
+
+    const h1 = document.createElement('h1');
+    h1.classList.add('word-saved');
+    h1.appendChild(document.createTextNode(message));
+    this.word.appendChild(h1);
+
+    setTimeout(() => {
+      this.clearMessage()
+    }, 2000);
   }
 
   // Show message when no word is entered
@@ -158,6 +175,9 @@ class UI {
 
     const currentAlert = document.querySelector('.word-not-found');
     currentAlert ? currentAlert.remove() : currentAlert;
+
+    const currentSavedMessage = document.querySelector('.word-saved');
+    currentSavedMessage ? currentSavedMessage.remove() : currentSavedMessage;
   }
 
   // Show alert message when word not found
