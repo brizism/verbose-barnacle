@@ -24,7 +24,16 @@
 }
 
 // styles
+#body { background: $alice-blue; }
+#myWords { 
+  max-width: 150rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  margin-top: 7rem;
+}
 #main, #myWords {
+  position: relative;
   .word-card {
     position: relative;
     width: 90%;
@@ -36,6 +45,17 @@
     border-radius: 1.5rem;
     box-shadow: 0px 2px 4px rgba(0,0,0,0.18);
 
+    &--save {
+      max-width: 90rem;
+      right: 0;
+      left: 0;
+
+      &:nth-child(odd){
+        left: 0 !important;
+      }
+
+    }
+
     &__header {
       display: flex;
       justify-content: space-between;
@@ -44,12 +64,19 @@
       top: 0;
       color: $purple;
       font-family: $font-circular-bold;
+    }
 
-      .save-word {
-        &:hover {
-          cursor: pointer;
-          transform: scale(1.5)
-        }
+    &__form {
+
+      button {
+        border: none;
+        background: none;
+        font-size: 2rem;
+        cursor: pointer;
+      }
+
+      &:hover {
+        transform: scale(1.5)
       }
     }
 
@@ -71,6 +98,10 @@
         position: relative;
         right: 7.5rem;
         top: 3.3rem;
+
+        &--save {
+          font-size: 4rem;
+        }
       }
 
       &__speech {
@@ -79,6 +110,10 @@
         position: relative;
         right: 9rem;
         color: $teaGreen;
+
+        &--save {
+          left: .6rem;
+        }
       }
 
       @media (min-width: $breakpoint-tablet){
@@ -104,11 +139,31 @@
       }
     }
 
+    &__delete {
+      font-size: 2rem;
+      position: absolute;
+      right: 21px;
+      top: 13px;
+      color: $orange;
+
+      &:hover {
+        color: $magenta;
+      }
+    }
+
     &__definition-wrapper {
       position: relative;
       top: 3px;
       text-align: center;
       margin-bottom: 2rem;
+
+      &--save {
+        p {
+          font-size: 1.7rem;
+          margin-top: 1rem;
+          text-align: center;
+        }
+      }
 
       @media (min-width: $breakpoint-tablet){
         padding: 0 50px;
@@ -198,6 +253,29 @@
     font-size: 3rem;
     text-align: center;
     color: $navy-blue;
+  }
+
+  .word-saved {
+    font-size: 15rem;
+    color: $purple;
+    text-align: center;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    width: 100%;
+    transition: all .2s ease-in-out;
+    animation: grow .3s ease-in-out;
+  }
+
+  @keyframes grow {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
 }
 
