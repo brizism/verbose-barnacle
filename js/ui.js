@@ -79,8 +79,11 @@ class UI {
       };
 
       if(localStorage.getItem('savedWords') === null){
+        // Init array
         let savedWords = [];
+        // Add to array
         savedWords.push(savedWord);
+        // Set to localStorage
         localStorage.setItem('savedWords', JSON.stringify(savedWords));
         this.showSavedMessage('Word saved!✨')
       } else {
@@ -99,14 +102,14 @@ class UI {
     // Get saved words from localStorage
     let savedWords = JSON.parse(localStorage.getItem('savedWords'));
     
-    savedWords.map(word => {
+    savedWords.forEach(word => {
       const div = document.createElement('div');
       div.classList.add('word-card');
       div.classList.add('word-card--save');
       div.innerHTML = 
       `
       <div class="word-card__wrapper">
-        <a href="#" class="word-card__delete">✖</a>
+        <a href="#" name="${word.word}" class="word-card__delete">✖</a>
         <h1 class="word-card__wrapper__word--save">${word.word}</h1>
         <span class="word-card__wrapper__speech word-card__wrapper__speech--save">${word.speech}</span>
       </div>
@@ -116,26 +119,32 @@ class UI {
       `
       this.myWords.appendChild(div);
     })
-    
-    this.deleteWords()
+    this.deleteButton();
   }
 
-  // Delete words 
-  deleteWords(){
-    // Get words from localStorage
-    let savedWords = JSON.parse(localStorage.getItem('savedWords'));
-
-    savedWords.forEach(word => {
-      console.log(word)
-    })
-
+  // Delete buttons
+  deleteButton(){
     let deleteLink = document.getElementsByClassName('word-card__delete');
     let allDeleteLinks = Array.from(deleteLink);
 
-    allDeleteLinks.map(link => link.addEventListener('click', () => {
-      
+    allDeleteLinks.map(link => link.addEventListener('click', (e) => {
+      this.deleteWord(e)
     }))
+  }
 
+  deleteWord(e){
+    // Get words from localStorage
+    let savedWords = JSON.parse(localStorage.getItem('savedWords'));
+    
+    savedWords.forEach((word, i) => {
+      if(e.target.name == word.word ){
+        savedWords.splice(i, 1)
+        e.target.offsetParent.remove()
+      }
+    })
+
+    // Re-set back to localStorage
+    localStorage.setItem('savedWords', JSON.stringify(savedWords));
   }
 
   // Show message when word is saved
