@@ -86,15 +86,24 @@ class UI {
         // Set to localStorage
         localStorage.setItem('savedWords', JSON.stringify(savedWords));
         this.showSavedMessage('Word saved!✨')
-      } else {
-        let savedWords = JSON.parse(localStorage.getItem('savedWords'));
+      }
+      if(this.repeatedWord(savedWord)){ return; }
+      let savedWords = JSON.parse(localStorage.getItem('savedWords'));
         savedWords.push(savedWord);
         localStorage.setItem('savedWords', JSON.stringify(savedWords))
         this.showSavedMessage('Word saved!✨')
-      }
     }))
 
     this.fetchSavedWords();
+  }
+
+  repeatedWord(word){
+    let storage = JSON.parse(localStorage.savedWords);
+    for(let i in storage){
+      if(storage[i].word === word.word){
+        return true;
+      }
+    }
   }
 
   // Fetch words from localStorage
