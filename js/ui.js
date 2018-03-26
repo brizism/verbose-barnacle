@@ -1,6 +1,8 @@
 class UI {
   constructor(){
     this.word = document.getElementById('main');
+    this.saveWords = document.getElementById('words-save');
+    this.modal = document.getElementById('words-modal');
     this.myWords = document.getElementById('myWords');
   }
 
@@ -112,24 +114,33 @@ class UI {
     // Get saved words from localStorage
     let savedWords = JSON.parse(localStorage.getItem('savedWords'));
     
+    this.modal.style.display = 'block';
     savedWords.forEach(word => {
       const div = document.createElement('div');
       div.classList.add('word-card');
       div.classList.add('word-card--save');
       div.innerHTML = 
       `
-      <div class="word-card__wrapper">
-        <a href="#" name="${word.word}" class="word-card__delete">✖</a>
-        <h1 class="word-card__wrapper__word--save">${word.word}</h1>
-        <span class="word-card__wrapper__speech word-card__wrapper__speech--save">${word.speech}</span>
-      </div>
-      <div class="word-card__definition-wrapper--save">
-        <p>${word.definition}</p>
-      </div>
+        <div class="word-card__wrapper">
+          <a href="#" name="${word.word}" class="word-card__delete">✖</a>
+          <h1 class="word-card__wrapper__word--save">${word.word}</h1>
+          <span class="word-card__wrapper__speech word-card__wrapper__speech--save">${word.speech}</span>
+        </div>
+        <div class="word-card__definition-wrapper--save">
+          <p>${word.definition}</p>
+        </div>
       `
-      this.myWords.appendChild(div);
+      this.saveWords.appendChild(div)
     })
     this.deleteButton();
+    this.hideVector()
+  }
+
+  hideVector(){
+    if(this.modal.style.display == 'block'){
+      let svg = document.querySelectorAll('svg');
+      svg.forEach(triangle => triangle.style.display = 'none')
+    }
   }
 
   // Delete buttons
