@@ -24,16 +24,36 @@
 }
 
 // styles
-#body { background: $alice-blue; }
-#myWords { 
-  max-width: 150rem;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  margin-top: 7rem;
+.words-modal {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  background: $alice-blue;
+
+  &__save {
+    max-width: 150rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-top: 13rem;
+
+    #close {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      font-size: 5rem;
+      color: $magenta;
+      transform: translate(-50%);
+      cursor: pointer;
+
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
 }
-#main, #myWords {
-  position: relative;
+#main, #words-save {
   .word-card {
     position: relative;
     width: 90%;
