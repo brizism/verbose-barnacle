@@ -101,6 +101,7 @@ class UI {
     let storage = JSON.parse(localStorage.savedWords);
     for(let i in storage){
       if(storage[i].word === word.word){
+        this.showSavedMessage('Word already saved!✨')
         return true;
       }
     }
