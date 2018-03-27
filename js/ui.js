@@ -44,7 +44,7 @@ class UI {
 
     this.fetchAgain()
     this.clickSave()
-    this.openSavedWords();
+    //this.floatingButton();
   }
 
   // Second http call on click span
@@ -89,6 +89,7 @@ class UI {
         // Set to localStorage
         localStorage.setItem('savedWords', JSON.stringify(savedWords));
         this.showSavedMessage('Word saved!✨')
+        this.floatingButton()
       }
       if(this.repeatedWord(savedWord)){ return; }
       let savedWords = JSON.parse(localStorage.getItem('savedWords'));
@@ -97,14 +98,13 @@ class UI {
         this.showSavedMessage('Word saved!✨')
     }))
 
-    //this.fetchSavedWords();
-    this.openSavedWords()
+    this.floatingButton()
   }
 
   repeatedWord(word){
     let storage = JSON.parse(localStorage.savedWords);
     for(let i in storage){
-      if(storage[i].word === word.word){
+      if(storage[i].definition === word.definition){
         this.showSavedMessage('Word already saved!✨')
         return true;
       }
@@ -116,7 +116,6 @@ class UI {
     // Get saved words from localStorage
     let savedWords = JSON.parse(localStorage.getItem('savedWords'));
     
-    this.modal.style.display = 'block';
     savedWords.forEach(word => {
       const div = document.createElement('div');
       div.classList.add('word-card');
@@ -124,7 +123,7 @@ class UI {
       div.innerHTML = 
       `
         <div class="word-card__wrapper">
-          <a href="#" name="${word.word}" class="word-card__delete">✖</a>
+          <a href="#" name="${word.definition}" class="word-card__delete">✖</a>
           <h1 class="word-card__wrapper__word--save">${word.word}</h1>
           <span class="word-card__wrapper__speech word-card__wrapper__speech--save">${word.speech}</span>
         </div>
@@ -134,36 +133,63 @@ class UI {
       `
       this.saveWords.appendChild(div);
     })
-    this.deleteButton();
-    this.closeModal();
-    this.hideVector()
   }
 
-  openSavedWords(){
-    if(localStorage.length === 0){return}
+  paintSavedWords(){
+    this.modal.style.display = 'block';
+    document.getElementById('words-save');
+
+    this.deleteButton();
+    this.closeModal();
+    this.hideVector();
+
+  }
+
+  floatingButton(){
+    //if(localStorage.length === 0){return;}
     if(localStorage.length === 1){
       const openWords = document.createElement('div');
-      openWords.classList.add('savedWords')
+      openWords.setAttribute('id', 'savedWords')
       openWords.innerHTML = `
-        <a href="#">My words</a>
+        <a id="openModal" href="#"><i class="fas fa-thumbtack"></i></a>
       `;
       this.word.appendChild(openWords)
       //this.fetchSavedWords()
+      this.openModal();
     }
   }
 
+  openModal(){
+     document.getElementById('openModal').onclick = () => this.paintSavedWords();
+  }
+
   hideVector(){
-    // if(this.modal.style.display == 'block'){
+    let displaySetting = this.modal.style.display;
+    let svg = document.querySelectorAll('svg');
+    // if(displaySetting == 'block'){
+    //   svg.forEach(triangle => triangle.style.display = 'none')
+    // }
+    // else if(displaySetting == 'none'){
+    //   console.log('lal')
+    // } 
+
+    switch (displaySetting){
+      case 'block':
+        console.log('it is block');
+        break;
+      case 'none':
+        console.log('it is none');
+      break;
+      default:
+        console.log('it isss');
+    }
+    
+    // if(this.modal.style.display !== 'none'){
     //   let svg = document.querySelectorAll('svg');
     //   svg.forEach(triangle => triangle.style.display = 'none')
-    // } else if (this.modal.style.display == 'none'){
-    //   svg.forEach(triangle => triangle.style.display = 'block')
+    // } else if(this.modal.style.display == 'none'){
+    //   console.log('it is none')
     // }
-    if(this.modal.style.display !== 'none'){
-      console.log('it is block')
-    } else if(this.modal.style.display == 'none'){
-      console.log('it is none')
-    }
   }
 
   // Delete buttons
@@ -181,7 +207,7 @@ class UI {
     let savedWords = JSON.parse(localStorage.getItem('savedWords'));
     
     savedWords.forEach((word, i) => {
-      if(e.target.name == word.word ){
+      if(e.target.name == word.definition){
         savedWords.splice(i, 1)
         e.target.offsetParent.remove()
       }
