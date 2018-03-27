@@ -247,7 +247,7 @@
   }
 
   .word-saved {
-    font-size: 15rem;
+    font-size: 4rem;
     color: $purple;
     text-align: center;
     position: fixed;
@@ -257,6 +257,8 @@
     width: 100%;
     transition: all .2s ease-in-out;
     animation: grow .3s ease-in-out;
+
+    @media (min-width: $breakpoint-l-tablet){ font-size: 15rem; }
   }
 
   @keyframes grow {

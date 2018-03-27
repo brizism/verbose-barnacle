@@ -1,14 +1,14 @@
-.savedWords{
+#savedWords{
   position: fixed;
-  right: 3rem;
-  bottom: 3rem;
+  right: 2rem;
+  bottom: 1rem;
 
   a {
-    width: 8rem;
-    height: 8rem;
+    width: 5rem;
+    height: 5rem;
     background: $purple;
     border-radius: 50%;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -17,6 +17,17 @@
 
     &:hover {
       background: $orange;
+    }
+  }
+
+  @media (min-width: $breakpoint-l-tablet){
+    right: 3rem;
+    bottom: 3rem;
+
+    a {
+      width: 8rem;
+      height: 8rem;
+      font-size: 1.8rem;
     }
   }
 }
