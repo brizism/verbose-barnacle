@@ -106,6 +106,8 @@ class UI {
     for(let i in storage){
       if(storage[i].definition === word.definition){
         this.showSavedMessage('Word already saved!✨')
+        console.log(storage[i].definition);
+        console.log(word.definition);
         return true;
       }
     }
@@ -146,7 +148,9 @@ class UI {
   }
 
   floatingButton(){
-    //if(localStorage.length === 0){return;}
+    // if(localStorage.savedWords === '[]' || localStorage.length == 0){
+    //   return;
+    // }
     if(localStorage.length === 1){
       const openWords = document.createElement('div');
       openWords.setAttribute('id', 'savedWords')
@@ -175,13 +179,13 @@ class UI {
 
     switch (displaySetting){
       case 'block':
-        console.log('it is block');
+        //console.log('it is block');
         break;
       case 'none':
-        console.log('it is none');
+        //console.log('it is none');
       break;
       default:
-        console.log('it isss');
+        //console.log('it isss');
     }
     
     // if(this.modal.style.display !== 'none'){
