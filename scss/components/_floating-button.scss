@@ -1,0 +1,22 @@
+.savedWords{
+  position: fixed;
+  right: 3rem;
+  bottom: 3rem;
+
+  a {
+    width: 8rem;
+    height: 8rem;
+    background: $purple;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+    &:hover {
+      background: $orange;
+    }
+  }
+}
