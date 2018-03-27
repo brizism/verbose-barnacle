@@ -44,6 +44,7 @@ class UI {
 
     this.fetchAgain()
     this.clickSave()
+    this.openSavedWords();
   }
 
   // Second http call on click span
@@ -96,7 +97,8 @@ class UI {
         this.showSavedMessage('Word saved!✨')
     }))
 
-    this.fetchSavedWords();
+    //this.fetchSavedWords();
+    this.openSavedWords()
   }
 
   repeatedWord(word){
@@ -130,16 +132,37 @@ class UI {
           <p>${word.definition}</p>
         </div>
       `
-      this.saveWords.appendChild(div)
+      this.saveWords.appendChild(div);
     })
     this.deleteButton();
+    this.closeModal();
     this.hideVector()
   }
 
+  openSavedWords(){
+    if(localStorage.length === 0){return}
+    if(localStorage.length === 1){
+      const openWords = document.createElement('div');
+      openWords.classList.add('savedWords')
+      openWords.innerHTML = `
+        <a href="#">My words</a>
+      `;
+      this.word.appendChild(openWords)
+      //this.fetchSavedWords()
+    }
+  }
+
   hideVector(){
-    if(this.modal.style.display == 'block'){
-      let svg = document.querySelectorAll('svg');
-      svg.forEach(triangle => triangle.style.display = 'none')
+    // if(this.modal.style.display == 'block'){
+    //   let svg = document.querySelectorAll('svg');
+    //   svg.forEach(triangle => triangle.style.display = 'none')
+    // } else if (this.modal.style.display == 'none'){
+    //   svg.forEach(triangle => triangle.style.display = 'block')
+    // }
+    if(this.modal.style.display !== 'none'){
+      console.log('it is block')
+    } else if(this.modal.style.display == 'none'){
+      console.log('it is none')
     }
   }
 
@@ -221,6 +244,11 @@ class UI {
     setTimeout(() => {
       this.clearMessage();
     }, 3000);
+  }
+
+  // Close modal
+  closeModal(){
+    document.getElementById('close').onclick = () => this.modal.style.display = 'none';
   }
 
   // Clear words from UI
