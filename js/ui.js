@@ -104,11 +104,9 @@ class UI {
   repeatedWord(word){
     let storage = JSON.parse(localStorage.savedWords);
     for(let i in storage){
-      if(storage[i].definition === word.definition){
-        this.showSavedMessage('Word already saved!✨')
-        console.log(storage[i].definition);
-        console.log(word.definition);
-        return true;
+      if(storage[i].definition + storage[i].word === word.definition + word.word){
+         this.showSavedMessage('Word already saved!✨')
+         return true;
       }
     }
   }
