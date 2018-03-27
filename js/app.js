@@ -4,8 +4,8 @@ const word = new Word;
  const ui = new UI;
 
 // Search form and input
-const searchForm = document.querySelector('search-form');
-const searchInput = document.querySelector('search-input');
+const searchForm = document.getElementById('search-form');
+const searchInput = document.getElementById('search-input');
 
 // Form event listener
 searchForm.addEventListener('submit', e => {
