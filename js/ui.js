@@ -138,7 +138,7 @@ class UI {
   paintSavedWords(){
     this.modal.style.display = 'block';
     document.getElementById('words-save');
-
+    
     this.deleteButton();
     this.closeModal();
     this.hideVector();
